@@ -1,0 +1,44 @@
+<div class="container">
+    <form class="px-8 py-1" [formGroup]="form" (ngSubmit)="createHospital()">
+        <div class="p-fluid" formGroupname="form">
+            <h3>Nome</h3>
+            <input type="text" value="{{ form.value.nome }}" id="nome" formControlName="nome" pInputText required />
+        </div>
+        <h3>Endereço</h3>
+        <div class="p-grid p-fluid">
+            <div class="my-2 p-inputgroup">
+                <label for="bairro" class="p-inputgroup-addon">Estado</label>
+                <input type="text" value="{{form.value.endereco?.estado}}" formControlName="estado" id="estado"
+                    pInputText>
+            </div>
+            <div class="my-2 p-inputgroup">
+                <label for="cidade" class="p-inputgroup-addon">Cidade</label>
+                <input type="text" value="{{form.value.endereco?.cidade}}" formControlName="cidade" id="cidade"
+                    pInputText>
+            </div>
+            <div class="my-2 p-inputgroup">
+                <label for="bairro" class="p-inputgroup-addon">Bairro</label>
+                <input type="text" value="{{form.value.endereco?.bairro}}" formControlName="bairro" id="bairro"
+                    pInputText>
+            </div>
+            <div class="my-2 p-inputgroup">
+                <label for="bairro" class="p-inputgroup-addon">Rua</label>
+                <input type="text" value="{{form.value.endereco?.rua}}" formControlName="rua" id="rua" pInputText>
+            </div>
+            <div class="my-2 p-inputgroup">
+                <label for="bairro" class="p-inputgroup-addon">Numero</label>
+                <input type="text" value="{{form.value.endereco?.numero}}" formControlName="numero" id="numero"
+                    pInputText>
+            </div>
+        </div>
+        <br>
+        <div class="mx-8 mt-4 p-fluid">
+            <button pButton pRipple type="submit" label="Criar Hospital" class="p-button-success"></button>
+        </div>
+        <br>
+        <div class="mx-8 mt-4 p-fluid">
+            <button pButton pRipple type="button" (click)="backToScreenCreate()" label="Voltar"
+                class="p-button-info"></button>
+        </div>
+    </form>
+</div>
