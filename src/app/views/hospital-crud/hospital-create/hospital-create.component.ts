@@ -31,6 +31,8 @@ export class HospitalCreateComponent implements OnInit {
   }
 
   createHospital() {
+    /*pegando os valores do atributos pelo FormGroup faz com que eu não precise efetuar um propety binding 
+    e informar os valores dos atributos na tela*/
     const hospital: Hospital = this.form.value;
     hospital.endereco = {
       rua: this.form.value.rua,
@@ -42,10 +44,11 @@ export class HospitalCreateComponent implements OnInit {
 
     this.service.create(hospital).subscribe(() => {
       console.log("Criando Um Hospital")
-      this.router.navigateByUrl("hospitais")
+      this.backToScreenListHospital()
     })
   }
-  backToScreenCreate() {
+
+  backToScreenListHospital() {
     this.router.navigateByUrl("hospitais")
   }
 

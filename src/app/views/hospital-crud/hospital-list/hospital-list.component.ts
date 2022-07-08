@@ -29,4 +29,14 @@ export class HospitalListComponent implements OnInit {
   navigatoToCreate() {
     this.router.navigateByUrl("hospitais/create")
   }
+
+  editHospital(hospital: Hospital) {
+    this.router.navigateByUrl(`hospitais/update/${hospital.id}`)
+  }
+
+  deleteHospital(hospital: Hospital) {
+    this.service.deleteByid(hospital.id).subscribe(() => {
+      this.listAll();
+    })
+  }
 }

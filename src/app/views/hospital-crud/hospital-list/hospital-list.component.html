@@ -5,6 +5,7 @@
                 (click)="navigatoToCreate()"></button>
         </ng-template>
     </p-toolbar>
+    <br>
     <p-table #dt [value]="hospitais" [globalFilterFields]="['nome']" [rows]="10" [paginator]="true" [rowHover]="true"
         dataKey="id" [showCurrentPageReport]="true">
         <ng-template pTemplate="caption">
@@ -15,12 +16,9 @@
         <ng-template pTemplate="header">
             <tr>
                 <th pSortableColumn="id">id <p-sortIcon field="id"></p-sortIcon>
-                </th>
                 <th pSortableColumn="Nome">Nome <p-sortIcon field="Nome"></p-sortIcon>
-                </th>
                 <th pSortableColumn="Endereco">Endereco <p-sortIcon field="Endereco"></p-sortIcon>
-                </th>
-                <th></th>
+                <th pSortableColumn="Actions">Actions <p-sortIcon field="Actions"></p-sortIcon>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-hospital>
@@ -30,12 +28,12 @@
                 <!-- não é obrigatorio informar o endereço-->
                 <td>{{hospital.endereco?.rua}}, {{hospital.endereco?.numero}} - {{hospital.endereco?.bairro}} |
                     {{hospital.endereco?.cidade}} - {{hospital.endereco?.estado}}</td>
-                <!--td>
+                <td>
                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
-                        (click)="editProduct(product)"></button>
+                        (click)="editHospital(hospital)"></button>
                     <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
-                        (click)="deleteProduct(product)"></button>
-                </td-->
+                        (click)="deleteHospital(hospital)"></button>
+                </td>
             </tr>
         </ng-template>
     </p-table>

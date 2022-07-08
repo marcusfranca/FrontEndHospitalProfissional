@@ -1,5 +1,5 @@
 <div class="container">
-    <form class="px-8 py-1" [formGroup]="form" (ngSubmit)="createHospital()">
+    <form class="px-8 py-1" [formGroup]="form" (ngSubmit)="updateHospital()">
         <div class="p-fluid" formGroupname="form">
             <h3>Nome</h3>
             <input type="text" id="nome" formControlName="nome" pInputText required />
@@ -13,7 +13,6 @@
             <div class="my-2 p-inputgroup">
                 <label for="cidade" class="p-inputgroup-addon">Cidade</label>
                 <input type="text" formControlName="cidade" id="cidade" pInputText>
-                <!--value="{{form.value.endereco?.cidade}}" não seria utilizado e só seria um codigo morto, por conta do this.form.value.nome que já pega esse valor e fazendo não precisar desse proprety Binding value-->
             </div>
             <div class="my-2 p-inputgroup">
                 <label for="bairro" class="p-inputgroup-addon">Bairro</label>
@@ -30,7 +29,7 @@
         </div>
         <br>
         <div class="mx-8 mt-4 p-fluid">
-            <button pButton pRipple type="submit" label="Criar Hospital" class="p-button-success"></button>
+            <button pButton pRipple type="submit" label="Atualizar Hospital" class="p-button-success"></button>
         </div>
         <br>
         <div class="mx-8 mt-4 p-fluid">

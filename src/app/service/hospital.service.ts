@@ -23,7 +23,12 @@ export class HospitalService {
     return this.http.post<HospitalDTO>(this.urlBase, hospital);
   }
 
-  updateDeleteByid(id: number, hospital: HospitalDTO): Observable<HospitalDTO> {
+  getHospitalById(id: number): Observable<HospitalDTO> {
+    return this.http.get<HospitalDTO>(`${this.urlBase}/${id}`);
+  }
+
+
+  updateByid(id: number, hospital: Hospital): Observable<HospitalDTO> {
     return this.http.put<HospitalDTO>(`${this.urlBase}/${id}`, hospital);
   }
 
