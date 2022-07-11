@@ -26,6 +26,7 @@ export class HospitalEditComponent implements OnInit {
   ngOnInit(): void {
     this.setHospitalByUrl()
   }
+
   updateHospital() {
     const hospital: Hospital = this.form.value; // type Hospital serve para ele pegar todos os valores sem deixar 1 de fora
     hospital.endereco = {

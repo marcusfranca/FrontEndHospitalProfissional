@@ -1,9 +1,17 @@
 <div class="container">
-    <form class="px-8 py-1" [formGroup]="form" (ngSubmit)="updateHospital()">
+    <form class="px-8 py-1" [formGroup]="form" (ngSubmit)="updateProfissional()">
         <div class="p-fluid" formGroupname="form">
             <h3>Nome</h3>
             <input type="text" id="nome" formControlName="nome" pInputText required />
         </div>
+        <h3>Cargo</h3>
+        <div class="p-grid p-fluid">
+            <div class="my-2 p-inputgroup">
+                <label for="bairro" class="p-inputgroup-addon">Cargo</label>
+                <input type="text" formControlName="cargo" id="cargo" pInputText required>
+            </div>
+        </div>
+
         <h3>Endereço</h3>
         <div class="p-grid p-fluid">
             <div class="my-2 p-inputgroup">
@@ -34,7 +42,7 @@
         </div>
         <br>
         <div class="mx-8 mt-4 p-fluid">
-            <button pButton pRipple type="button" (click)="backToScreenListHospital()" label="Voltar"
+            <button pButton pRipple type="button" (click)="backToScreenListProfissional()" label="Voltar"
                 class="p-button-info"></button>
         </div>
     </form>

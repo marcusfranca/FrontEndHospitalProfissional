@@ -1,40 +1,53 @@
 <div class="container">
-    <form class="px-8 py-1" [formGroup]="form" (ngSubmit)="updateHospital()">
+    <form class="px-8 py-1" [formGroup]="form" (ngSubmit)="createProfissional()">
         <div class="p-fluid" formGroupname="form">
             <h3>Nome</h3>
             <input type="text" id="nome" formControlName="nome" pInputText required />
+            <p-message severity="info" text="Nome obrigatorio"></p-message>
+        </div>
+        <div class="p-fluid">
+            <h3>Cargo</h3>
+            <label for="bairro"></label>
+            <input type="text" formControlName="cargo" id="cargo" pInputText required>
+            <p-message severity="info" text="Cargo obrigatorio"></p-message>
         </div>
         <h3>Endereço</h3>
         <div class="p-grid p-fluid">
             <div class="my-2 p-inputgroup">
                 <label for="bairro" class="p-inputgroup-addon">Estado</label>
                 <input type="text" formControlName="estado" id="estado" pInputText required>
+                <p-message severity="info" text="Estado obrigatorio"></p-message>
             </div>
             <div class="my-2 p-inputgroup">
                 <label for="cidade" class="p-inputgroup-addon">Cidade</label>
                 <input type="text" formControlName="cidade" id="cidade" pInputText required>
+                <p-message severity="info" text="Cidade obrigatorio"></p-message>
+                <!--value="{{form.value.endereco?.cidade}}" não seria utilizado e só seria um codigo morto, por conta do this.form.value.nome que já pega esse valor e fazendo não precisar desse proprety Binding value-->
             </div>
             <div class="my-2 p-inputgroup">
                 <label for="bairro" class="p-inputgroup-addon">Bairro</label>
                 <input type="text" formControlName="bairro" id="bairro" pInputText required>
+                <p-message severity="info" text="Bairro obrigatorio"></p-message>
             </div>
             <div class="my-2 p-inputgroup">
                 <label for="bairro" class="p-inputgroup-addon">Rua</label>
                 <input type="text" formControlName="rua" id="rua" pInputText required>
+                <p-message severity="info" text="Rua obrigatorio"></p-message>
             </div>
             <div class="my-2 p-inputgroup">
                 <label for="bairro" class="p-inputgroup-addon">Numero</label>
                 <input type="text" formControlName="numero" id="numero" pInputText required>
+                <p-message severity="info" text="Numero obrigatorio"></p-message>
             </div>
         </div>
         <br>
         <div class="mx-8 mt-4 p-fluid">
-            <button pButton pRipple type="submit" label="Atualizar Hospital" class="p-button-success"
+            <button pButton pRipple type="submit" label="Criar Profissional" class="p-button-success"
                 [disabled]="!form.valid"></button>
         </div>
         <br>
         <div class="mx-8 mt-4 p-fluid">
-            <button pButton pRipple type="button" (click)="backToScreenListHospital()" label="Voltar"
+            <button pButton pRipple type="button" (click)="backToScreenListProfissional()" label="Voltar"
                 class="p-button-info"></button>
         </div>
     </form>

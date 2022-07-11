@@ -1,36 +1,53 @@
+<!--Tenho o FormGroup todo preenchido e o ngSubMIT vai pegar esse valor que foi preenchido e guardar e o buttão vai fazer ação do event
+    FormControlName vai pegar a validação do formulario e ver cada atributo individualmente e assim vai saber o valor verdade dele se caso não tiver um nome  no
+    formGroup  e tiver no FormControlName= "name" ele vai informar que não foi indentificado o Nome, pois o formControlName vai verificar esse atributo e vai ver
+    que o formGroup não tem o value dele e nem o estado dele.
+    Erro: Cannot find control with name
+-->
+<p-toast></p-toast>
 <div class="container">
     <form class="px-8 py-1" [formGroup]="form" (ngSubmit)="createHospital()">
+        <!-- submite evento emitido do form, captura o valor atual do form e o butão irar fazer a ação dele (event)-->
         <div class="p-fluid" formGroupname="form">
             <h3>Nome</h3>
             <input type="text" id="nome" formControlName="nome" pInputText required />
+            <p-message severity="info" text="Nome obrigatorio"></p-message>
         </div>
         <h3>Endereço</h3>
         <div class="p-grid p-fluid">
             <div class="my-2 p-inputgroup">
                 <label for="bairro" class="p-inputgroup-addon">Estado</label>
-                <input type="text" formControlName="estado" id="estado" pInputText>
+                <input type="text" formControlName="estado" id="estado" pInputText required>
+                <!--FormControll:  diretiva vinculada com o controle de formulário definido em formgroup, controle de cada atributo individualmente, assim vai saber o valor verdade do atributo-->
+                <p-message severity="info" text="Estado obrigatorio"></p-message>
             </div>
             <div class="my-2 p-inputgroup">
                 <label for="cidade" class="p-inputgroup-addon">Cidade</label>
-                <input type="text" formControlName="cidade" id="cidade" pInputText>
+                <input type="text" formControlName="cidade" id="cidade" pInputText required>
+                <p-message severity="info" text="Cidade obrigatorio"></p-message>
                 <!--value="{{form.value.endereco?.cidade}}" não seria utilizado e só seria um codigo morto, por conta do this.form.value.nome que já pega esse valor e fazendo não precisar desse proprety Binding value-->
             </div>
             <div class="my-2 p-inputgroup">
                 <label for="bairro" class="p-inputgroup-addon">Bairro</label>
-                <input type="text" formControlName="bairro" id="bairro" pInputText>
+                <input type="text" formControlName="bairro" id="bairro" pInputText required>
+                <p-message severity="info" text="Bairro obrigatorio"></p-message>
             </div>
             <div class="my-2 p-inputgroup">
                 <label for="bairro" class="p-inputgroup-addon">Rua</label>
-                <input type="text" formControlName="rua" id="rua" pInputText>
+                <input type="text" formControlName="rua" id="rua" pInputText required>
+                <p-message severity="info" text="Rua obrigatorio"></p-message>
             </div>
             <div class="my-2 p-inputgroup">
                 <label for="bairro" class="p-inputgroup-addon">Numero</label>
-                <input type="text" formControlName="numero" id="numero" pInputText>
+                <input type="text" formControlName="numero" id="numero" pInputText required>
+                <p-message severity="info" text="Numero obrigatorio"></p-message>
             </div>
         </div>
         <br>
         <div class="mx-8 mt-4 p-fluid">
-            <button pButton pRipple type="submit" label="Criar Hospital" class="p-button-success"></button>
+            <button pButton pRipple type="submit" label="Criar Hospital" class="p-button-success"
+                [disabled]="!form.valid"></button>
+            <!-- [disabled]="!form.valid" -> desabilita o button quando o form for invalido-->
         </div>
         <br>
         <div class="mx-8 mt-4 p-fluid">
@@ -39,3 +56,4 @@
         </div>
     </form>
 </div>
+<p-confirmDialog header="Confirmação" icon="pi pi-exclamation-triangle"></p-confirmDialog>

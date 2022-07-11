@@ -1,7 +1,9 @@
-import { ProfissionalDTO } from './../model/dto/Profissional';
+import { Profissional } from './../model/Profissional';
+import { ProfissionalDTO } from '../model/dto/ProfissionalDTO';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Page } from '../model/page/page.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -13,15 +15,19 @@ export class ProfissionalService {
   private readonly urlBase = "http://localhost:8080/api/v1/profissionais";
 
 
-  get(): Observable<ProfissionalDTO> {
-    return this.http.get<ProfissionalDTO>(this.urlBase);
+  getList(page = 0, size = 10): Observable<Page<ProfissionalDTO>> {
+    return this.http.get<Page<ProfissionalDTO>>(`${this.urlBase}?page=${page}${size ? `&size=${size}` : ``}`);
   }
 
-  create(profissional: ProfissionalDTO): Observable<ProfissionalDTO> {
+  create(profissional: Profissional): Observable<ProfissionalDTO> {
     return this.http.post<ProfissionalDTO>(this.urlBase, profissional);
   }
 
-  updateDeleteByid(id: number, profissional: ProfissionalDTO): Observable<ProfissionalDTO> {
+  getById(id: number): Observable<ProfissionalDTO> {
+    return this.http.get<ProfissionalDTO>(`${this.urlBase}/${id}`);
+  }
+
+  updateByid(id: number, profissional: Profissional): Observable<ProfissionalDTO> {
     return this.http.put<ProfissionalDTO>(`${this.urlBase}/${id}`, profissional);
   }
 

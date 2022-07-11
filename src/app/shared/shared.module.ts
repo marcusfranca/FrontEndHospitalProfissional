@@ -15,6 +15,8 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { TableModule } from 'primeng/table';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { ToastModule } from 'primeng/toast';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 import { ToolbarModule } from 'primeng/toolbar';
 import { CommonModule } from '@angular/common';
 
@@ -41,7 +43,10 @@ const primeNg = [
     SplitButtonModule,
     DynamicDialogModule,
     ToastModule,
-    TableModule
+    TableModule,
+    MessagesModule,
+    MessageModule
+
 ]
 
 @NgModule({

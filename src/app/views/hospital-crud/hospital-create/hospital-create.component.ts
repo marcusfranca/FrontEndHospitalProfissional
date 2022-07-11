@@ -1,21 +1,24 @@
-import { map } from 'rxjs';
+
 import { Hospital } from './../../../model/Hospital';
 import { Router } from '@angular/router';
 import { HospitalService } from './../../../service/hospital.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-hospital-create',
   templateUrl: './hospital-create.component.html',
-  styleUrls: ['./hospital-create.component.scss']
+  styleUrls: ['./hospital-create.component.scss'],
+  providers: [ConfirmationService, MessageService]
 })
 export class HospitalCreateComponent implements OnInit {
   hospital!: Hospital
+
   form!: FormGroup
 
-  constructor(private service: HospitalService, private router: Router) {
-    this.hospital = new Hospital();
+
+  constructor(private service: HospitalService, private router: Router, private messageService: MessageService) {
     this.form = new FormGroup({
       nome: new FormControl(''),
       telefone: new FormControl(''),
@@ -43,9 +46,9 @@ export class HospitalCreateComponent implements OnInit {
     };
 
     this.service.create(hospital).subscribe(() => {
-      console.log("Criando Um Hospital")
-      this.backToScreenListHospital()
-    })
+      this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Hospital Salvo', life: 3000 });
+    });
+    this.backToScreenListHospital()
   }
 
   backToScreenListHospital() {
