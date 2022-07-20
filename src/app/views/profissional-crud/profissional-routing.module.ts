@@ -1,3 +1,4 @@
+import { ViewProfissionalComponent } from './view-profissional/view-profissional.component';
 import { ProfissionalEditComponent } from './profissional-edit/profissional-edit.component';
 import { ProfissionalCreateComponent } from './profissional-create/profissional-create.component';
 import { ProfissionalListComponent } from './profissional-list/profissional-list.component';
@@ -16,6 +17,10 @@ const routes: Routes = [
     {
         path: 'update/:id',
         component: ProfissionalEditComponent
+    },
+    {
+        path: 'relacionamento/:id',
+        component: ViewProfissionalComponent
     }
 ];
 

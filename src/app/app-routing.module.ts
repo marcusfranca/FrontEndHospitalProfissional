@@ -26,6 +26,13 @@ const routes: Routes = [
       import('./views/profissional-crud/profissional-routing.module').then(
         (m) => m.ProfissionalRoutingModule
       )
+  },
+  {
+    path: 'relacionamentos', /* vai acessar o routing do hospital-crud e assim vai acessar a pagina de lista e criar e tudo que tiver no routing */
+    loadChildren: () =>
+      import('./views/relacionamentos/relacionamento-routing.module').then(
+        (m) => m.RelacionamentoModuleRouting
+      )
   }
 ];
 

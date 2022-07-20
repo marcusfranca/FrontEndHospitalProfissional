@@ -15,7 +15,7 @@ export class HospitalService {
   private readonly urlBase = "http://localhost:8080/api/v1/hospitais";
 
 
-  get(page = 0, size?: number): Observable<Page<HospitalDTO>> {
+  getList(page = 0, size?: number): Observable<Page<HospitalDTO>> {
     return this.http.get<Page<HospitalDTO>>(`${this.urlBase}?page=${page}${size ? `&size=${size}` : ``}`);
   }
 

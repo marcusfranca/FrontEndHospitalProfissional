@@ -4,6 +4,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ProfissionalListComponent } from './profissional-list/profissional-list.component';
 import { ProfissionalEditComponent } from './profissional-edit/profissional-edit.component';
 import { ProfissionalCreateComponent } from './profissional-create/profissional-create.component';
+import { ViewProfissionalComponent } from './view-profissional/view-profissional.component';
 
 
 
@@ -11,7 +12,8 @@ import { ProfissionalCreateComponent } from './profissional-create/profissional-
   declarations: [
     ProfissionalListComponent,
     ProfissionalEditComponent,
-    ProfissionalCreateComponent
+    ProfissionalCreateComponent,
+    ViewProfissionalComponent
   ],
   imports: [
     CommonModule,

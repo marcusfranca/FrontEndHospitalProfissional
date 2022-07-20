@@ -21,7 +21,7 @@ export class HospitalListComponent implements OnInit {
   }
 
   listAll(page = 0, size = 10) {
-    this.service.get().subscribe(response => {
+    this.service.getList().subscribe(response => {
       this.hospitais = response.content.map((hospital) => Hospital.fromDTO(hospital))
     })
   }

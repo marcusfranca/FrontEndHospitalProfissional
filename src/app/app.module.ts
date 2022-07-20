@@ -1,3 +1,5 @@
+import { Relacionamento } from './views/relacionamentos/relacionamento.module';
+
 import { ProfissionalModule } from './views/profissional-crud/profissional.module';
 import { HospitalCrudModule } from './views/hospital-crud/hospital-crud.module';
 import { NgModule } from '@angular/core';
@@ -11,16 +13,16 @@ import { ButtonModule } from 'primeng/button';
 import { HomeComponent } from './views/home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
-import { RelacionamentoComponent } from './views/Relacionamanto-hospital-profissional/relacionamento/relacionamento.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    RelacionamentoComponent,
+    HomeComponent
+
   ],
   imports: [
     HttpClientModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     AccordionModule,
@@ -28,7 +30,8 @@ import { RelacionamentoComponent } from './views/Relacionamanto-hospital-profiss
     SharedModule,
     BrowserAnimationsModule,
     HospitalCrudModule, // importando os modulo do  hospital onde vai tá os componentes lista, criar e etc.
-    ProfissionalModule
+    ProfissionalModule,
+    Relacionamento
 
   ],
   providers: [],

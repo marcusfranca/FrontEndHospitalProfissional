@@ -1,0 +1,52 @@
+<h1 class="profissionalName">Profissional</h1>
+<div class="container">
+    <form class="px-8 py-1" [formGroup]="form" (ngSubmit)="createRelacao()">
+        <div class="p-fluid" formGroupname="form">
+            <h3>Nome</h3>
+            <input type="text" id="nome" formControlName="nome" pInputText required />
+        </div>
+        <div class="p-fluid">
+            <h3>Cargo</h3>
+            <input type="text" id="cargo" pInputText formControlName="cargo" />
+        </div>
+        <h3>Endereço</h3>
+        <div class="p-grid p-fluid">
+            <div class="my-2 p-inputgroup">
+                <label for="rua" class="p-inputgroup-addon">Rua</label>
+                <input type="text" id="rua" formControlName="rua" pInputText required />
+            </div>
+            <div class="my-2 p-inputgroup">
+                <label for="numero" class="p-inputgroup-addon">Numero</label>
+                <input type="text" id="numero" formControlName="numero" pInputText required />
+            </div>
+            <div class="my-2 p-inputgroup">
+                <label for="bairro" class="p-inputgroup-addon">Bairro</label>
+                <input type="text" id="bairro" formControlName="bairro" pInputText required />
+            </div>
+            <div class="my-2 p-inputgroup">
+                <label for="cidade" class="p-inputgroup-addon">Cidade</label>
+                <input type="text" id="cidade" formControlName="cidade" pInputText required />
+            </div>
+            <div class="my-2 p-inputgroup">
+                <label for="estado" class="p-inputgroup-addon">Estado</label>
+                <input type="text" placeholder="SP" id="estado" formControlName="estado" pInputText required />
+            </div>
+        </div>
+        <div class="p-fluid">
+            <h3>Hospitais</h3>
+            <p-listbox [options]="hospitais" [multiple]="true" [checkbox]="true" formControlName="hospitais"
+                optionLabel="nome" optionValue="id"></p-listbox>
+            <!--esse optionLabel faz retornar o nome do array do objeto-->
+        </div>
+        <br>
+        <div class="mx-8 mt-4 p-fluid">
+            <button pButton pRipple type="submit" label="Criar Relacionamento" class="p-button-success"
+                [disabled]="!form.value"></button>
+        </div>
+        <br>
+        <div class="mx-8 mt-4 p-fluid">
+            <button pButton pRipple type="button" label="Voltar" (click)="backToScreenList()"
+                class="p-button-info"></button>
+        </div>
+    </form>
+</div>

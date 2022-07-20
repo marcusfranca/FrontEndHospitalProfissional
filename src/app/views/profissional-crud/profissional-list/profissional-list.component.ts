@@ -1,7 +1,7 @@
 import { Hospital } from './../../../model/Hospital';
 import { map } from 'rxjs';
 import { Profissional } from './../../../model/Profissional';
-import { Router } from '@angular/router';
+import { Route, Router } from '@angular/router';
 import { ProfissionalService } from './../../../service/profissional.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -29,10 +29,13 @@ export class ProfissionalListComponent implements OnInit {
     this.router.navigateByUrl(`profissionais/update/${profissional.id}`)
   }
 
-  deleteProfissional(hospital: Hospital) {
-    this.service.deleteByid(hospital.id).subscribe(() => {
-      console.log(hospital.nome);
+  deleteProfissional(profissional: Profissional) {
+    this.service.deleteByid(profissional.id).subscribe(() => {
+      console.log(profissional.nome);
     })
+  }
+  views(profissional: Profissional) {
+    this.router.navigateByUrl(`profissionais/relacionamento/${profissional.id}`)
   }
 
   navigatoToCreate() {

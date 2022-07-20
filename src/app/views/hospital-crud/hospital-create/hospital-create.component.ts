@@ -47,8 +47,8 @@ export class HospitalCreateComponent implements OnInit {
 
     this.service.create(hospital).subscribe(() => {
       this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Hospital Salvo', life: 3000 });
+      this.backToScreenListHospital()
     });
-    this.backToScreenListHospital()
   }
 
   backToScreenListHospital() {
